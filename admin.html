@@ -1,0 +1,17 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card card-glass p-4">
+      <h4 class="mb-3">เข้าสู่ระบบแอดมิน</h4>
+      <form method="post">
+        <div class="mb-3"><label class="form-label">ชื่อผู้ใช้</label><input class="form-control" name="username" required></div>
+        <div class="mb-3"><label class="form-label">รหัสผ่าน</label><input class="form-control" type="password" name="password" required></div>
+        <button class="btn btn-danger w-100">ล็อกอิน</button>
+        <a class="btn btn-outline-light w-100 mt-2" href="{{ url_for('index') }}">กลับหน้าหลัก</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
