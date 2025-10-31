@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="text-center my-4">
+  <h1 class="fw-bold text-danger">Worrakit Shop</h1>
+  <p class="text-light">ระบบจองเครื่องคอมพิวเตอร์เกมมิ่ง — โทนสีดำแดง</p>
+</div>
+
+<div class="row row-cols-2 row-cols-md-3 g-4">
+  {% for pc in pcs %}
+  <div class="col">
+    <div class="card bg-dark text-light border-danger shadow">
+      <div class="card-body text-center">
+        <h5 class="card-title">{{ pc.name }}</h5>
+        <p class="card-text">สถานะ:
+          {% if pc.available %}
+          <span class="text-success">ว่าง</span>
+          {% else %}
+          <span class="text-danger">ไม่ว่าง</span>
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
