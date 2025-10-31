@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-danger mb-3">จัดการสถานะเครื่อง (Admin)</h2>
+
+<form method="post">
+  <table class="table table-dark table-striped border-danger">
+    <thead>
+      <tr>
+        <th>ชื่อเครื่อง</th>
+        <th>สถานะ</th>
+        <th>เปลี่ยนสถานะ</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pc in pcs %}
+      <tr>
+        <td>{{ pc.name }}</td>
+        <td>
+          {% if pc.available %}
+          <span class="text-success">ว่าง</span>
+          {% else %}
+          <span class="text-danger">ไม่ว่าง</span>
+          {% endif %}
+        </td>
+        <td>
+          <button name="toggle" value="{{ pc.id }}" class="btn btn-outline-danger btn-sm">
+            สลับ
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</form>
+{% endblock %}
